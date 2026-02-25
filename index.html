@@ -964,8 +964,11 @@
 
     <script>
         // navbar hide/show
-        let lastScroll = 0; const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+        let isAutoScrolling = false;
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
+            if (isAutoScrolling) return; // 🚫 ignore menu scroll
             const current = window.pageYOffset;
             if (current > lastScroll && current > 80) { navbar.classList.add('hide'); }
             else { navbar.classList.remove('hide'); }
@@ -993,9 +996,18 @@
             const target = document.querySelector(id);
             if (!target) return;
 
+            isAutoScrolling = true;            // 🔒 lock navbar
+            navbar.classList.remove('hide');   // ✅ always show navbar
+
             window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
             history.replaceState(null, null, ' '); // remove hash
             closeMenu();
+
+            // 🔓 unlock after scroll animation
+            setTimeout(() => {
+                isAutoScrolling = false;
+                lastScroll = window.pageYOffset;
+            }, 700); // match smooth scroll duration
         }
 
         // attach smooth nav to ALL navbar links except Book Now
