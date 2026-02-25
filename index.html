@@ -413,6 +413,76 @@
             margin: 8px 0;
         }
 
+        .variant-slider {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .variant-slider img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            cursor: pointer;
+        }
+
+        .variant-slider img.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .image-popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .image-popup img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 18px;
+        }
+
+        .image-popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .image-popup .nav {
+            position: absolute;
+            font-size: 50px;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .image-popup .nav.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .image-popup .left {
+            left: 30px;
+        }
+
+        .image-popup .right {
+            right: 30px;
+        }
+
         /* CONTACT */
         .contact-grid {
             display: grid;
@@ -762,6 +832,7 @@
                 <div class="product-body">
                     <h4>Lab-E-Shireen</h4>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                    <p style="font-weight: bold;">₹150</p>
                     <a class="book-btn" href="https://wa.me/919715655178?text=I%20want%20Lab%20E%20Shireen">Book Now</a>
                 </div>
             </div>
@@ -774,43 +845,71 @@
         <div class="variant-grid">
 
             <div class="variant-card">
-                <img src="images/mutton_haleem.jpeg" alt="120 ml">
+                <div class="variant-slider" data-group="mutton-125">
+                    <img src="images/mutton_haleem.jpeg" class="active" data-index="0" onclick="openPopup(this)">
+                    <img src="images/lab_e_shireen.jpeg" data-index="1" onclick="openPopup(this)">
+                    <img src="images/mutton_haleem.jpeg" data-index="2" onclick="openPopup(this)">
+                </div>
                 <div class="variant-product-body">
                     <h4>Mutton Haleem</h4>
                     <p>₹110 / 125ml</p>
-                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%20125ml" class="book-btn">Book Now</a>
+                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%20125ml" class="book-btn">Book
+                        Now</a>
                 </div>
             </div>
 
             <div class="variant-card">
-                <img src="images/mutton_haleem.jpeg" alt="250 ml">
+                <div class="variant-slider" data-group="mutton-300">
+                    <img src="images/mutton_haleem.jpeg" class="active" data-index="0" onclick="openPopup(this)">
+                    <img src="images/lab_e_shireen.jpeg" data-index="1" onclick="openPopup(this)">
+                    <img src="images/mutton_haleem.jpeg" data-index="2" onclick="openPopup(this)">
+                </div>
                 <div class="variant-product-body">
                     <h4>Mutton Haleem</h4>
                     <p>₹260 / 300ml</p>
-                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%20300ml" class="book-btn">Book Now</a>
+                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%20300ml" class="book-btn">Book
+                        Now</a>
                 </div>
             </div>
 
             <div class="variant-card">
-                <img src="images/mutton_haleem.jpeg" alt="500 ml">
+                <div class="variant-slider" data-group="mutton-500">
+                    <img src="images/mutton_haleem.jpeg" class="active" data-index="0" onclick="openPopup(this)">
+                    <img src="images/lab_e_shireen.jpeg" data-index="1" onclick="openPopup(this)">
+                    <img src="images/mutton_haleem.jpeg" data-index="2" onclick="openPopup(this)">
+                </div>
                 <div class="variant-product-body">
                     <h4>Mutton Haleem</h4>
                     <p>₹430 / 500ml</p>
-                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%20500ml" class="book-btn">Book Now</a>
+                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%20500ml" class="book-btn">Book
+                        Now</a>
                 </div>
             </div>
 
             <div class="variant-card">
-                <img src="images/mutton_haleem.jpeg" alt="1 kg">
+                <div class="variant-slider" data-group="mutton-1000">
+                    <img src="images/mutton_haleem.jpeg" class="active" data-index="0" onclick="openPopup(this)">
+                    <img src="images/lab_e_shireen.jpeg" data-index="1" onclick="openPopup(this)">
+                    <img src="images/mutton_haleem.jpeg" data-index="2" onclick="openPopup(this)">
+                </div>
                 <div class="variant-product-body">
                     <h4>Mutton Haleem</h4>
                     <p>₹860 / 1000ml</p>
-                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%201000ml" class="book-btn">Book Now</a>
+                    <a href="https://wa.me/919715655178?text=I%20want%20Mutton%20Haleem%201000ml" class="book-btn">Book
+                        Now</a>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <div class="image-popup" id="imagePopup">
+        <span class="close" onclick="closePopup()">×</span>
+
+        <span class="nav left" id="prevArrow" onclick="changeImage(-1)">❮</span>
+        <img id="popupImg">
+        <span class="nav right" id="nextArrow" onclick="changeImage(1)">❯</span>
+    </div>
 
     <!-- CONTACT -->
     <section id="contact">
@@ -932,6 +1031,95 @@
                 }
             });
         }
+    </script>
+
+    <script>
+        document.querySelectorAll('.variant-slider').forEach(slider => {
+            let images = slider.querySelectorAll('img');
+            let index = 0;
+
+            setInterval(() => {
+                images[index].classList.remove('active');
+                index = (index + 1) % images.length;
+                images[index].classList.add('active');
+            }, 3500);
+        });
+    </script>
+
+    <script>
+        let popupImages = [];
+        let currentIndex = 0;
+        let startX = 0;
+
+        function openPopup(img) {
+            const slider = img.closest('.variant-slider');
+
+            popupImages = Array.from(slider.querySelectorAll('img'));
+            currentIndex = Number(img.dataset.index); // ✅ exact image
+
+            const popup = document.getElementById('imagePopup');
+            const popupImg = document.getElementById('popupImg');
+
+            popupImg.src = popupImages[currentIndex].src;
+            popupImg.classList.remove('zoomed');
+            popup.style.display = 'flex';
+
+            updateArrows();
+        }
+
+        function closePopup() {
+            document.getElementById('imagePopup').style.display = 'none';
+        }
+
+        function changeImage(step) {
+            const newIndex = currentIndex + step;
+
+            // ⛔ Stop at edges
+            if (newIndex < 0 || newIndex >= popupImages.length) return;
+
+            currentIndex = newIndex;
+
+            const popupImg = document.getElementById('popupImg');
+            popupImg.src = popupImages[currentIndex].src;
+            popupImg.classList.remove('zoomed');
+
+            updateArrows();
+        }
+
+        /* ENABLE / DISABLE ARROWS */
+        function updateArrows() {
+            const prev = document.getElementById('prevArrow');
+            const next = document.getElementById('nextArrow');
+
+            prev.classList.toggle('disabled', currentIndex === 0);
+            next.classList.toggle('disabled', currentIndex === popupImages.length - 1);
+        }
+
+        /* ZOOM TOGGLE */
+        document.getElementById('popupImg').addEventListener('click', function () {
+            this.classList.toggle('zoomed');
+        });
+
+        /* SWIPE SUPPORT (EDGE SAFE) */
+        const popup = document.getElementById('imagePopup');
+
+        popup.addEventListener('touchstart', e => {
+            startX = e.touches[0].clientX;
+        });
+
+        popup.addEventListener('touchend', e => {
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            if (Math.abs(diff) < 50) return;
+
+            if (diff > 0 && currentIndex < popupImages.length - 1) {
+                changeImage(1);   // swipe left
+            }
+            else if (diff < 0 && currentIndex > 0) {
+                changeImage(-1);  // swipe right
+            }
+        });
     </script>
 
     <script type="application/ld+json">
